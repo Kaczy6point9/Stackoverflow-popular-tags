@@ -1,17 +1,29 @@
-﻿@{
+﻿@model List<Stackoverflow_popular_tags.Models.Item>
+@{
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model 
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>List</h2>
-        <p>
-         Hello World
-        @foreach(var tag in Model)
-        {
-            @tag.name
-        }
-        </p>
-       
-    </div>
+
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Tag</th>
+                <th scope="col">Count</th>
+                <th scope="col">Percent</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Count</td>
+                    <td>@item.Percent%</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
